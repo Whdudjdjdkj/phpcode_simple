@@ -33,5 +33,22 @@ echo "<pre>";
 print_r($sonuc[0]);
 
 
+Array
+(
+    [0] => int fun(param1,param2){}
+)
+
+?>
+
+#fun bulucu
+
+<?php
+$metin = 'int fun(param1,param2){}';
+$desen = '/(int|void) [a-zA-Z]+[()](.*?)[()][{}](.*?)[{}]/'; #fonksiyon bkoğunu bulur
+
+preg_match_all($desen,$metin,$sonuc);
+echo "<pre>";
+print_r($sonuc[0]);
+
 ?>
 
