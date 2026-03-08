@@ -50,5 +50,22 @@ preg_match_all($desen,$metin,$sonuc);
 echo "<pre>";
 print_r($sonuc[0]);
 
+
+#### chatgpt çıktı
+#### c degisken çözümleme
+
+
+$kod = "int sayi = 5;";
+
+$regex = '/(int|float|double|char|short|long)\s+([a-zA-Z_][a-zA-Z0-9_]*)\s*=\s*([^;]+);/';
+
+if (preg_match($regex, $kod, $sonuc)) {
+
+    echo "Tip: " . $sonuc[1] . "\n";
+    echo "Degisken: " . $sonuc[2] . "\n";
+    echo "Deger: " . $sonuc[3];
+
+}
+?>
 ?>
 
