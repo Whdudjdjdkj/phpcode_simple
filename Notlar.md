@@ -2,7 +2,7 @@
 
 - **ad** çağrı
 - **soyad** yıldırım
-- **yaş** 33 yıl
+- **yaş** *33 yıl*
 - **memleket** kayseri
 
 ## dost siteler
