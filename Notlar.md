@@ -17,3 +17,10 @@
 
 ### alıntı
 > RTE dedi ki türkiye korunuyor
+
+### tablo
+
+| Dil | Tür |
+|----|----|
+| PHP | Backend |
+| JS | Frontend |
