@@ -11,3 +11,9 @@
 
 ### kod
 'cod php'
+
+### yatay çizgi
+---
+
+### alıntı
+> RTE dedi ki türkiye korunuyor
