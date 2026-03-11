@@ -51,3 +51,53 @@ AL = 100
 AL : AL + BL + CF(TAŞMA BAYRAĞI)   
    
 Operation DEST := DEST + SRC + CF;   
+
+
+### SUB
+
+SUB komutu, ikinci operandı (kaynak operand) birinci operanddan (hedef operand) çıkarır ve sonucu hedef operand içinde saklar.
+Hedef operand bir register veya bir bellek konumu olabilir; kaynak operand ise immediate (sabit değer), register veya bellek konumu olabilir. (Ancak tek bir komutta iki bellek operandı kullanılamaz.)
+Bir immediate değer operand olarak kullanıldığında, hedef operandın uzunluğuna uygun olacak şekilde işaret genişletmesi (sign extension) yapılır.
+SUB komutu, tamsayı çıkarma işlemi gerçekleştirir. Sonucu hem işaretli (signed) hem de işaretsiz (unsigned) tamsayılar için değerlendirir ve sonucu göstermek için bayrakları ayarlar
+
+MOV AL,50   
+MOV CL,30   
+SUB AL,CL   
+   
+AL = AL - CL   
+AL = 50 - 30   
+AL = 20   
+   
+   
+Operation DEST := (DEST – SRC);   
+
+
+### SBB
+
+SBB komutu, kaynak operandı (ikinci operand) ile Carry (CF) bayrağını toplar ve elde edilen sonucu hedef operanddan (birinci operand) çıkarır. Çıkarma işleminin sonucu hedef operand içinde saklanır.
+Hedef operand bir register veya bir bellek konumu olabilir; kaynak operand ise immediate (sabit değer), register veya bellek konumu olabilir. (Ancak tek bir komutta iki bellek operandı kullanılamaz.)
+CF bayrağının durumu, önceki bir çıkarma işleminden gelen borrow (ödünç alma) değerini temsil eder.
+Bir immediate değer operand olarak kullanıldığında, hedef operandın uzunluğuna uygun olacak şekilde işaret genişletmesi (sign extension) yapılır.
+SBB komutu, işaretli (signed) veya işaretsiz (unsigned) operandlar arasında bir ayrım yapmaz. Bunun yerine işlemci sonucu her iki veri türü için değerlendirir ve sonucu göstermek için bayrakları ayarlar:
+OF (Overflow Flag): işaretli sonuçta taşma oluştuğunu gösterir.
+CF (Carry Flag): işaretsiz sonuçta borrow (ödünç alma) oluştuğunu gösterir.
+SF (Sign Flag): işaretli sonucun işaretini gösterir.
+SBB komutu genellikle, çok baytlı (multibyte) veya çok kelimeli (multiword) bir çıkarma işleminin parçası olarak çalıştırılır. Bu durumda önce SUB komutu çalıştırılır ve ardından oluşan borrow değerini hesaba katmak için SBB komutu kullanılır.
+
+MOV AL,2   
+MOV BL,5   
+SUB AL,BL   
+   
+AL = AL - BL   
+AL = 2 - 5   
+AL = -3   
+SET CF BARROW = 1   
+   
+SBB AL,1   
+   
+AL = AL - ( 1 + CF)   
+AL = -3 - ( 1+1)   
+AL = -3 -2    
+AL = -5   
+    
+Operation DEST := (DEST – (SRC + CF));   
