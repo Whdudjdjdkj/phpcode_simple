@@ -19,9 +19,9 @@
 | CMP | Karşılaştırma yapar | CMP AX,BX |
 
 ### ADD
-MOV AX,20
-MOV BX,30
+MOV AX,20   
+MOV BX,30   
 ADD AX,BX
 
-AX: AX + BX
+AX: AX + BX   
 Operation DEST(AX) := DEST(AX) + SRC(BX);
