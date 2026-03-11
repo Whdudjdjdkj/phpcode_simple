@@ -19,6 +19,9 @@
 | CMP | Karşılaştırma yapar | CMP AX,BX |
 
 ### ADD
+
+ADD komutu, hedef operandı (birinci operand) ile kaynak operandı (ikinci operand) toplar ve sonucu hedef operanda saklar. Hedef operand bir register veya bir bellek konumu olabilir; kaynak operand ise immediate (sabit değer), register veya bellek konumu olabilir. (Ancak tek bir komutta iki bellek operandı kullanılamaz.)
+
 MOV AX,20   
 MOV BX,30   
 ADD AX,BX
