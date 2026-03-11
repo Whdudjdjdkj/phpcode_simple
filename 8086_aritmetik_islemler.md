@@ -132,3 +132,42 @@ DEC SI
 DEC DWORD [100]
 
 Operation DEST := DEST – 1;   
+
+
+### INC
+
+INC komutu, hedef operandın değerine 1 ekler, ancak CF (Carry Flag) bayrağının durumunu korur.
+Hedef operand bir register veya bir bellek konumu olabilir.
+Bu komut, CF bayrağını bozmadan bir döngü sayacını (loop counter) güncellemeye olanak sağlar.
+(Eğer CF bayrağını da güncelleyen bir artırma işlemi yapmak istenirse, 1 değerli immediate operand ile birlikte ADD komutu kullanılmalıdır.)
+
+
+MOV BP,20   
+INC BP   
+   
+BP(:DEST) = BP + 1   
+BP = 20 + 1   
+BP = 21   
+    
+MOV SP,20  
+INC SP  
+  
+SP(HEDEF) = SP + 1  
+SP = 20 + 1  
+SP(HEDEF OPERAND) = 21  
+  
+MOV SI,20  
+INC SI  
+  
+SI = 21  
+  
+MOV DI,20  
+INC DI  
+  
+DI = 21  
+  
+INC [DS:100]  
+  
+DS:100 = DS:100 + 1  
+  
+Operation DEST := DEST + 1;  
