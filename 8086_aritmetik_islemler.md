@@ -17,3 +17,11 @@
 | IDIV | İşaretli bölme yapar | IDIV BX |
 | NEG | Sayının işaretini değiştirir | NEG AX |
 | CMP | Karşılaştırma yapar | CMP AX,BX |
+
+### ADD
+MOV AX,20
+MOV BX,30
+ADD AX,BX
+
+AX: AX + BX
+Operation DEST(AX) := DEST(AX) + SRC(BX);
