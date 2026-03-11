@@ -101,3 +101,34 @@ AL = -3 -2
 AL = -5   
     
 Operation DEST := (DEST – (SRC + CF));   
+
+
+### DEC
+
+DEC komutu, hedef operanddan 1 çıkarır, ancak CF (Carry Flag) bayrağının durumunu korur.
+Hedef operand bir register veya bir bellek konumu olabilir.
+Bu komut, CF bayrağını değiştirmeden bir döngü sayacını (loop counter) güncellemeye izin verir.
+(Eğer CF bayrağını da güncelleyen bir azaltma işlemi yapmak istenirse, 1 değerli immediate operand ile birlikte SUB komutu kullanılmalıdır.)
+
+MOV AX,20   
+DEC AX   
+
+AX = AX - 1   
+AX = 20 -1   
+AX(HEDEF OPERAND) = 19   
+   
+MOV BX,20   
+DEC BX  
+
+BX = BX - 1   
+BX = 20 - 1   
+BC(DEST) = 19
+
+
+   
+MOV SI,20   
+DEC SI   
+
+DEC DWORD [100]
+
+Operation DEST := DEST – 1;   
