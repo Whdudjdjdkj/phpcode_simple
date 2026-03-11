@@ -40,14 +40,14 @@ Bir immediate değer operand olarak kullanıldığında, hedef operandın uzunlu
 MOV AL,255   
 MOV BL,1   
 ADD AL,BL   
-
-MOV AL,98
-MOV BL,1
-ADC AL,BL
-
-AL = 98 + 1 + CF(1) 
-AL = 100
-
-AL : AL + BL + CF(TAŞMA BAYRAĞI)
-
-Operation DEST := DEST + SRC + CF;
+   
+MOV AL,98   
+MOV BL,1   
+ADC AL,BL   
+   
+AL = 98 + 1 + CF(1)    
+AL = 100   
+   
+AL : AL + BL + CF(TAŞMA BAYRAĞI)   
+   
+Operation DEST := DEST + SRC + CF;   
