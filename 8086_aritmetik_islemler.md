@@ -205,3 +205,49 @@ RDX:RAX := RAX ∗ SRC; FI;
 16 bit DX:Ax 32 bite yazılır    
 32bit EDX:EAX çiftine 64 bit yazılır.  
 64 bit RDX:RAX çiftine yazılır 128 bit**  
+
+### DIV
+
+AX, DX:AX, EDX:EAX veya RDX:RAX yazmaçlarındaki değeri (bölünen / dividend), kaynak operand (bölen / divisor) ile işaretsiz olarak böler ve sonucu AX (AH:AL), DX:AX, EDX:EAX veya RDX:RAX yazmaçlarında saklar.
+Kaynak operand genel amaçlı bir yazmaçta veya bellek konumunda bulunabilir.
+Bu komutun yaptığı işlem operand boyutuna (bölünen/bölen) bağlıdır.
+64 bit operand ile bölme işlemi yalnızca 64-bit modunda kullanılabilir.
+Tam sayı olmayan sonuçlar 0’a doğru kesilerek (truncate edilerek) saklanır.
+Kalan (remainder) her zaman bölenden mutlak değer olarak daha küçüktür.
+Taşma (overflow) durumu CF bayrağı ile değil, #DE (Divide Error) istisnası ile belirtilir.   
+
+** Hangi kayıtedicilere sonucun yazılacağı OPERAND boyutuna bağlıdır.**  
+DIV **OPERAND BOYUTU**  
+  
+**8bit DIV örneği**  
+MOV AX,20  
+MOV BL,4  
+DIV BL  
+
+AX / BL  
+20 / 4  
+  
+  
+Register Değer  
+AL (bölüm) 5  
+AH (kalan) 0  
+8-bit bölmede AX bölünen, AL bölüm, AH kalan olur.  
+
+
+Operation IF SRC = 0 THEN #DE; FI; (* Divide Error *)   
+**IF OperandSize = 8 (* Word/Byte Operation *)**   
+THEN temp := AX / SRC;  
+IF temp > FFH THEN #DE; (* Divide error *)   ELSE AL := temp; AH := AX MOD SRC; FI;  
+  
+ELSE IF OperandSize = 16 (* Doubleword/word operation *)   
+**THEN temp := DX:AX / SRC;**   
+IF temp > FFFFH THEN #DE; (* Divide error *)   ELSE AX := temp; DX := DX:AX MOD SRC; FI; FI;   
+  
+ELSE IF Operandsize = 32 (* Quadword/doubleword operation *)   
+THEN temp := EDX:EAX / SRC;  
+IF temp > FFFFFFFFH THEN #DE;  
+(* Divide error *)  
+ELSE EAX := temp; EDX := EDX:EAX MOD SRC; FI; FI;  
+   
+ELSE IF 64-Bit Mode and Operandsize = 64 (* Doublequadword/quadword operation *) 
+THEN temp := RDX:RAX / SRC; IF temp > FFFFFFFFFFFFFFFFH THEN #DE; (* Divide error *) ELSE RAX := temp; RDX := RDX:RAX MOD SRC; FI; FI; FI;
