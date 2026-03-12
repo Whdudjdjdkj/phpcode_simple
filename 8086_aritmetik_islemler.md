@@ -177,3 +177,31 @@ Operation DEST := DEST + 1;
 
 İlk operand (hedef operand) ile ikinci operandın (kaynak operand) işaretsiz çarpımını gerçekleştirir ve sonucu hedef operandda saklar.
 **Hedef operand örtük** (implied) bir operanddır ve AL, AX veya EAX yazmaçlarında bulunur (operandın boyutuna bağlı olarak). Kaynak operand ise genel amaçlı bir yazmaçta veya bir bellek konumunda bulunur.
+
+***8bit mul örneği***   
+MOV AL,5  
+MOV BL,4  
+MUL BL  
+
+**Çünkü 8-bit çarpım sonucu AX registerına yazılır.**  
+   
+***16bit mul örneği***  
+MOV AX,6  
+MOV BX,5  
+MUL BX  
+
+**16-bit çarpımda sonuç DX:AX register çiftine yazılır.**
+  
+Operation IF (Byte operation)   
+THEN AX := AL ∗ SRC;   
+ELSE IF OperandSize = 16    
+THEN DX:AX := AX ∗ SRC;   
+ELSE IF OperandSize = 32 AX EAX RAX  
+THEN EDX:EAX := EAX ∗ SRC; FI;   
+ELSE (* OperandSize = 64 *)   
+RDX:RAX := RAX ∗ SRC; FI;  
+  
+** 8bit 16 bite yazılır AX  
+16 bit DX:Ax 32 bite yazılır    
+32bit EDX:EAX çiftine 64 bit yazılır.  
+64 bit RDX:RAX çiftine yazılır 128 bit***  
