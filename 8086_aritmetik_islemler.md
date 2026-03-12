@@ -268,4 +268,32 @@ V.S
   
 Operation   
 temp := SRC1 − SignExtend(SRC2);  
-ModifyStatusFlags; (* Modify status flags in the same manner as the SUB instruction*)
+ModifyStatusFlags; (* Modify status flags in the same manner as the SUB instruction*)  
+  
+  
+
+### 1 MB alanı 64 KB segmentlere bölme
+
+| DS (Segment) | Başlangıç Fiziksel Adres | Bitiş Fiziksel Adres |
+|---|---|---|
+| 0000h | 00000h | 0FFFFh |
+| 1000h | 10000h | 1FFFFh |
+| 2000h | 20000h | 2FFFFh |
+| 3000h | 30000h | 3FFFFh |
+| 4000h | 40000h | 4FFFFh |
+| 5000h | 50000h | 5FFFFh |
+| 6000h | 60000h | 6FFFFh |
+| 7000h | 70000h | 7FFFFh |
+| 8000h | 80000h | 8FFFFh |
+| 9000h | 90000h | 9FFFFh |
+| A000h | A0000h | AFFFFh |
+| B000h | B0000h | BFFFFh |
+| C000h | C0000h | CFFFFh |
+| D000h | D0000h | DFFFFh |
+| E000h | E0000h | EFFFFh |
+| F000h | F0000h | FFFFFh |
+
+Sonuç  
+**1 MB / 64 KB = 16 segment**  
+#### DS için selector değerleri:  
+**0000h, 1000h, 2000h, ... , F000h**  
