@@ -204,4 +204,4 @@ RDX:RAX := RAX ∗ SRC; FI;
 ** 8bit 16 bite yazılır AX  
 16 bit DX:Ax 32 bite yazılır    
 32bit EDX:EAX çiftine 64 bit yazılır.  
-64 bit RDX:RAX çiftine yazılır 128 bit***  
+64 bit RDX:RAX çiftine yazılır 128 bit**  
