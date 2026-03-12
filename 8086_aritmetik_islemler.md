@@ -251,3 +251,21 @@ ELSE EAX := temp; EDX := EDX:EAX MOD SRC; FI; FI;
    
 ELSE IF 64-Bit Mode and Operandsize = 64 (* Doublequadword/quadword operation *) 
 THEN temp := RDX:RAX / SRC; IF temp > FFFFFFFFFFFFFFFFH THEN #DE; (* Divide error *) ELSE RAX := temp; RDX := RDX:RAX MOD SRC; FI; FI; FI;
+
+
+### CMP
+
+**İlk kaynak operandını ikinci kaynak operandı ile karşılaştırır** ve **sonuca göre EFLAGS yazmacındaki durum bayraklarını (status flags) ayarlar.** Karşılaştırma işlemi, ikinci operandın birinci operanddan çıkarılması ile yapılır ve ardından bayraklar SUB komutundaki ile aynı şekilde ayarlanır.
+Bir immediate (sabit) değer operand olarak kullanıldığında, bu değer birinci operandın uzunluğuna kadar işaret genişletmesi (sign-extend) yapılarak kullanılır.
+Jcc, CMOVcc ve SETcc komutları tarafından kullanılan koşul kodları (condition codes), CMP komutunun sonucuna göre belirlenir.
+  
+CMP AX,BX  
+CMP AL,BL  
+CMP AX,600  
+CMP SI,DI  
+  
+V.S  
+  
+Operation   
+temp := SRC1 − SignExtend(SRC2);  
+ModifyStatusFlags; (* Modify status flags in the same manner as the SUB instruction*)
