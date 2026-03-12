@@ -170,4 +170,10 @@ INC [DS:100]
   
 DS:100 = DS:100 + 1  
   
-Operation DEST := DEST + 1;  
+Operation DEST := DEST + 1;   
+
+
+### MUL
+
+İlk operand (hedef operand) ile ikinci operandın (kaynak operand) işaretsiz çarpımını gerçekleştirir ve sonucu hedef operandda saklar.
+**Hedef operand örtük** (implied) bir operanddır ve AL, AX veya EAX yazmaçlarında bulunur (operandın boyutuna bağlı olarak). Kaynak operand ise genel amaçlı bir yazmaçta veya bir bellek konumunda bulunur.
