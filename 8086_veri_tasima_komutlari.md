@@ -73,3 +73,29 @@ THEN DEST := SS:ESP; (* Copy a doubleword *)   ESP := ESP + 4;
 ELSE (* OperandSize = 16*)  
 DEST := SS:ESP; (* Copy a word *)  
 ESP := ESP + 2; FI;  
+
+
+### PUSH
+
+Yığın işaretçisini (stack pointer) azaltır ve ardından kaynak operandını yığının (stack) en üstüne yerleştirir.
+
+PUSH AX  
+PUSH EAX  
+PUSH RAX  
+  
+PUSH SI  
+PUSH ESI  
+PUSH DI  
+PUSH EDI  
+  
+Operation
+IF StackAddrSize = 64  
+THEN IF **OperandSize = 64**  
+THEN RSP := RSP – 8;  
+Memory[SS:RSP] := SRC;  
+ELSE IF **OperandSize = 32**  
+THEN RSP := RSP – 4;  
+Memory[SS:RSP] := SRC;  
+ELSE (* **OperandSize = 16** *)  
+RSP := RSP – 2;  
+Memory[SS:RSP] := SRC; FI; 
