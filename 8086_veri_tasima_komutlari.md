@@ -80,9 +80,12 @@ ESP := ESP + 2; FI;
 Yığın işaretçisini (stack pointer) azaltır ve ardından kaynak operandını yığının (stack) en üstüne yerleştirir.
 
 PUSH AX  
+SP = SP - 2  
 PUSH EAX  
+SP = SP - 4  
 PUSH RAX  
-  
+SP = SP - 8  
+
 PUSH SI  
 PUSH ESI  
 PUSH DI  
