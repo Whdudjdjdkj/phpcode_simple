@@ -125,3 +125,20 @@ evet
 Operation  
   
 DEST := SRC; (* Read from selected I/O port *). 
+
+
+### OUT
+
+İkinci operandın (kaynak operand) değerini, birinci operandda (hedef operand) belirtilen I/O portuna kopyalar.
+Kaynak operand, erişilen portun boyutuna bağlı olarak AL, AX veya EAX yazmacı olabilir (sırasıyla 8, 16 veya 32 bit).
+Hedef operand ise byte-immediate bir değer veya DX yazmacı olabilir.
+Byte immediate kullanıldığında 0 ile 255 arasındaki I/O port adreslerine erişilebilir.
+DX yazmacı kullanıldığında ise 0 ile 65.535 arasındaki I/O port adreslerine erişilebilir.
+  
+OUT AL,DX  
+OUT AL,200  
+  
+**AL DEKİ VERİYİ DX PORTUNA VEYA 200 PORTUNA YOLLAR**  
+  
+DEST := SRC; (* Read from selected I/O port *).   
+
