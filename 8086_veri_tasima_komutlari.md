@@ -1,4 +1,6 @@
+# Veri taşıma komutları
 
+### veri taşıma komutları
 | Komut | Açıklama | Örnek |
 |------|----------|------|
 | MOV  | Veriyi kaynak operanddan hedef operanda kopyalar | MOV AX,BX |
