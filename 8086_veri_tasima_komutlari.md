@@ -118,7 +118,7 @@ Bu komut yalnızca işlemcinin I/O adres alanında bulunan I/O portlarına eriş
 
 #### c function  
 
-**result** out_port(**int*" port,**size_t** len,**char** data)
+**result** out_port(**int** port,**size_t** len,**char** data)
   
 IN AL,DX  
   
@@ -139,6 +139,11 @@ Hedef operand ise byte-immediate bir değer veya DX yazmacı olabilir.
 Byte immediate kullanıldığında 0 ile 255 arasındaki I/O port adreslerine erişilebilir.
 DX yazmacı kullanıldığında ise 0 ile 65.535 arasındaki I/O port adreslerine erişilebilir.
   
+
+#### c function  
+
+**result** in_port(**int** port,**size_t** len,**char** data)
+
 OUT 200,AL
 OUT DX,AL
   
