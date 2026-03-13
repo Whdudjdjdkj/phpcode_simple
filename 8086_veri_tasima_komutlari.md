@@ -115,6 +115,10 @@ Bir 8 bitlik I/O portuna erişirken portun boyutunu opcode belirler.
 Makine kodu seviyesinde, 8 bitlik I/O portlarına erişim yapılırken I/O komutları daha kısa olur.
 Bu durumda port adresinin üst 8 biti 0 olur.
 Bu komut yalnızca işlemcinin I/O adres alanında bulunan I/O portlarına erişmek için kullanışlıdır.
+
+#### c function  
+
+**result** out_port(**int*" port,**size_t** len,**char** data)
   
 IN AL,DX  
   
