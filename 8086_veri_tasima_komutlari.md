@@ -49,3 +49,27 @@ sonuç;
    BX.      5  
 
 Operation TEMP := DEST; DEST := SRC; SRC := TEMP;  
+
+### POP
+
+Yığının (stack) en üstündeki değeri alır ve hedef operand ile belirtilen konuma yükler, ardından stack pointer (SP/ESP/RSP) değerini artırır. Hedef operand genel amaçlı bir register, bellek konumu veya segment register olabilir.  
+  
+POP AX  
+  
+SP = SP + 2  
+  
+POP EAX  
+  
+SP = SP + 4  
+  
+POP RAX 
+  
+SP = SP + 8  
+   
+   
+Operation IF StackAddrSize = 32  
+THEN IF OperandSize = 32  
+THEN DEST := SS:ESP; (* Copy a doubleword *)   ESP := ESP + 4;  
+ELSE (* OperandSize = 16*)  
+DEST := SS:ESP; (* Copy a word *)  
+ESP := ESP + 2; FI;  
