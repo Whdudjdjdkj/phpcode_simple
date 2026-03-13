@@ -140,5 +140,30 @@ OUT DX,AL
   
 **AL DEKİ VERİYİ DX PORTUNA VEYA 200 PORTUNA YOLLAR**  
   
-DEST := SRC; (* Read from selected I/O port *).   
+DEST := SRC; (* Read from selected I/O port *).  
 
+
+### XLAT
+
+ Bellekteki **bir tablo** içindeki **bir baytlık girdiyi bulur**. Bunun için AL yazmacının içeriğini tablo indeksi olarak kullanır ve daha sonra tablodaki o girdinin içeriğini tekrar AL yazmacına kopyalar.
+AL yazmacındaki indeks işaretsiz (unsigned) bir tam sayı olarak değerlendirilir.
+XLAT ve XLATB komutları, bellekteki tablonun başlangıç adresini şu yazmaçlardan alır:
+DS:EBX (adres boyutu 32-bit ise)
+DS:BX (adres boyutu 16-bit ise)
+(Bu DS segmenti, bir segment override prefix ile değiştirilebilir.)
+  
+   
+TABLE DB 10h,20h,30h,40h  
+  
+MOV BX, OFFSET TABLE  
+MOV AL, 02h  
+XLAT  
+  
+Operation  
+IF AddressSize = 16  
+THEN AL := (DS:BX + ZeroExtend(AL));  
+ELSE IF (AddressSize = 32)  
+AL := (DS:EBX + ZeroExtend(AL));  
+FI;  
+ELSE (AddressSize = 64)  
+AL := (RBX + ZeroExtend(AL)); FI; 
