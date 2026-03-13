@@ -102,3 +102,26 @@ Memory[SS:RSP] := SRC;
 ELSE (* **OperandSize = 16** *)  
 RSP := RSP – 2;  
 Memory[SS:RSP] := SRC; FI; 
+
+###  IN
+
+İkinci operandda (kaynak operand) belirtilen I/O portunun değerini, birinci operand olan hedef operanda kopyalar.
+Kaynak operand byte türünde bir immediate değer veya DX yazmacı olabilir.
+Hedef operand ise erişilen portun boyutuna bağlı olarak AL, AX veya EAX yazmacı olabilir (sırasıyla 8, 16 veya 32 bit).
+Kaynak operand olarak DX yazmacı kullanıldığında, 0 ile 65.535 arasındaki I/O port adreslerine erişilebilir.
+Byte immediate değer kullanıldığında ise 0 ile 255 arasındaki I/O port adreslerine erişilebilir.
+Bir 8 bitlik I/O portuna erişirken portun boyutunu opcode belirler.
+16 bit ve 32 bit I/O portlarına erişirken ise portun boyutunu operand-size attribute (operand boyutu özelliği) belirler.
+Makine kodu seviyesinde, 8 bitlik I/O portlarına erişim yapılırken I/O komutları daha kısa olur.
+Bu durumda port adresinin üst 8 biti 0 olur.
+Bu komut yalnızca işlemcinin I/O adres alanında bulunan I/O portlarına erişmek için kullanışlıdır.
+  
+IN AL,DX  
+  
+DX DE PORTTAN AL YE VERİ Mİ ALİR KISACA CEVAPLA  
+  
+evet  
+  
+Operation  
+  
+DEST := SRC; (* Read from selected I/O port *). 
