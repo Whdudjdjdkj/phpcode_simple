@@ -29,3 +29,23 @@ MOV BP,SP
 V.S  
   
 Operation DEST := SRC;  
+
+
+### XCHG
+
+XCHG komutu, hedef operandın (birinci operand) ve kaynak operandın (ikinci operand) içeriklerini karşılıklı olarak değiştirir.
+Operandlar iki genel amaçlı register veya bir register ile bir bellek konumu olabilir.
+Eğer bir bellek operandı kullanılırsa, işlem süresi boyunca işlemcinin kilitleme protokolü (locking protocol) otomatik olarak uygulanır. Bu durum LOCK öneki (prefix) kullanılsa da kullanılmasa da ve IOPL değerinden bağımsız olarak gerçekleşir.
+(Kilitleme protokolü hakkında daha fazla bilgi için bu bölümdeki LOCK prefix açıklamasına bakınız.)  
+  
+  
+MOV AX,5  
+MOV BX,10  
+XCHG AX,BX 
+
+sonuç;    
+   Register Değer  
+   AX.      10  
+   BX.      5  
+
+Operation TEMP := DEST; DEST := SRC; SRC := TEMP;  
