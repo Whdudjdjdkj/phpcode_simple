@@ -135,8 +135,8 @@ Hedef operand ise byte-immediate bir değer veya DX yazmacı olabilir.
 Byte immediate kullanıldığında 0 ile 255 arasındaki I/O port adreslerine erişilebilir.
 DX yazmacı kullanıldığında ise 0 ile 65.535 arasındaki I/O port adreslerine erişilebilir.
   
-OUT AL,DX  
-OUT AL,200  
+OUT 200,AL
+OUT DX,AL
   
 **AL DEKİ VERİYİ DX PORTUNA VEYA 200 PORTUNA YOLLAR**  
   
