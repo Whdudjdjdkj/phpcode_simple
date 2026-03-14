@@ -165,3 +165,26 @@ START:
    
 CODE ENDS  
 END START  
+
+## KARAKTER DİZİSİNİ BAŞKA DİZİYE KOPYALAMAK
+## HEDEF VERİSİNE,KAYNAK VERİSİNİ BYTE BYTE KOPYALAR.
+
+2.parametre ile verilen karakter dizisini,1.parametre ile verilen karakter için ayrılmış bellek bloğuna byte byte adım adım kopyalar.bu arada bir label bırakmak gerekirse **işlemci her komutu byte byte adım adım çalıştırır yazılarda ve string işlemlerinde**..arz ederim.
+  
+HEDEF  DB 20 DUP(0)  
+KAYNAK DB "HELLO WORLD",0  
+  
+MOV DI,OFFSET HEDEF  
+MOV SI,OFFSET KAYNAK  
+  
+PROGRAM:  
+MOV AL,[SI]  
+MOV [DI],AL  
+INC SI  
+INC DI  
+CMP AL,0  
+JZ CIK  
+JMP SHORT PROGRAM  
+  
+CIK:  
+HLT  
