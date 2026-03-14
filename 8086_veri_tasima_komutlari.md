@@ -206,6 +206,7 @@ Bu fonksiyonlar c dilinde veri transfer fonksiyonlarını listeler.fobksiyonlar 
 1.parametre ile geçen hedef string bellek bölgesine,2.paremetre içeriğindeki yazıyı kopyalar.bu stringlerin sonundaki 0 karakterini kullanır.size gerektirmez.güvenli olabilmesi için.2.parametre ile geçen yazının sonunda 0 olabilmesi gerekir.ve yazının uzunluğu kadar 1.parametre ile geçen bellek bölgesinde uzunluk ve memory hafızası olmalıdır.
 
 // STRCPY FONKSİYONU KULLANARAK BİR STRİNGİ HEDEF STRİNGE KOPYALAMANIN KULLANIMI  
+        
 #include <stdio.h>  
 #include <string.h>  
 int main() {  
@@ -215,7 +216,7 @@ int main() {
     strcpy(param1,param2);  
     return 0;  
 }  
-
+        
 ## strncpy
 
 1.bellek bölgesine,2.bellek bölgesinden,3.paretre geçen size değeri kadar ,3.parametrede geçen yazıyı kopyalar.sgring verisi taşıma fonksiyonudur.ancak 2.parametre deki string in yazının uzunluğunu belirtmek gerekir. bir parça string kopyalar veYa string tamamını kopyalar.3.parametre ile geçen size değerinin,2.parametredeki yazının uzunluğundan fazla olmamasına dikkat edilmelidir.strlen() fonksiyonunu kullanmak fonksiyon prosedürünü güvenli çalıştıracaktır.
