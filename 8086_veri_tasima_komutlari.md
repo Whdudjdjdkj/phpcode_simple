@@ -215,8 +215,18 @@ Bu fonksiyonlar c dilinde veri transfer fonksiyonlarını listeler.fobksiyonlar 
 
 2.parametrede geçen yazıyı,stringi,1.parametre de geçen yazıya ekler.size yoktur.string sonu 0 karakterleri ile işlem yapar.1.parametre ile geçen string sonu 0 karakteri kısmını kullanılır.string verisi taşıma fonksiyon prosedürüdür.
 
-
+char eklenecek[100] = "Merhaba";  
+char eklenen[] = "dünya";  
+    
+strcat(eklenecek, eklenen);  
+  
 ## strncat
 
 3.parametrede geçen size değeri kadar yazı karakterini 1.parametrede geçen yazı belleğine,2.parametrede geçen yazıdan kopyalar.
+  
+char eklenecek[100] = "Merhaba";  
+char eklenen[] = "dünya merhaba";  
+int eklenecek_len = strlen(eklenecek);  
+strcat(eklenecek, eklenen,5);  
+eklenecek[eklenecek_len+6] = '/0';  
 
