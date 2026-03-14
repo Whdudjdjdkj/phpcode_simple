@@ -135,3 +135,33 @@ MOV SONUC,AL
   
 CODE ENDS  
 END START  
+
+## PRINT ILE EKRANA YAZI YAZMA KULLANIMI
+
+PRINTF fonksiyonunu parametreleriyle kullanmak için düzenlemeler yapılmış.2.parametre geçen yazıyı 1.parametre ile formatlayarak ekrana yazdırır.
+  
+DATA SEGMENT   
+PRINT_FORMATI DB "MESSAGE: %S",0  
+MESSAGE       DB "MESSAGE",0  
+DATA ENDS  
+  
+EXTRN PRINTF:NEAR  
+  
+CODE SEGMENT  
+ASSUME CS:CODE, DS:DATA  
+  
+START:  
+    MOV AX,DATA  
+    MOV DS,AX  
+  
+    PUSH OFFSET MESSAGE  
+    PUSH OFFSET PRINT_FORMATI  
+    CALL PRINTF  
+  
+    ADD SP,4  
+  
+    MOV AH,4CH  
+    INT 21H   
+   
+CODE ENDS  
+END START  
