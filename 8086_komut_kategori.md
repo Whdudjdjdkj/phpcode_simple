@@ -37,3 +37,19 @@ sayi: **immediate değer** veya **CL**
 | Soldan gelen bit    | 0                | İşaret biti      |
 | Kullanım            | Unsigned sayılar | Signed sayılar   |
 | Matematik           | /2               | Signed /2        |
+
+
+### ROL,RCS,ROR,RCR KOMUTLARI
+### BİTLER KAYBOLMAZ DÖNER SADECE
+
+| Özellik | ROL | RCL |
+|--------|-----|-----|
+| Döndürme | Operand içinde | Operand + CF |
+| Carry kullanımı | Sadece sonucu alır | Döndürmenin parçasıdır |
+| Bit sayısı | n bit | n+1 bit (CF dahil) |
+
+
+| Komut | Açılımı | Özellik |
+|------|---------|---------|
+| ROR  | Rotate Right | Bitleri sağa döndürür |
+| RCR  | Rotate through Carry Right | Bitleri Carry flag üzerinden sağa döndürür |
