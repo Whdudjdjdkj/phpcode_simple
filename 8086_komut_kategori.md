@@ -17,3 +17,23 @@
 
 Birinci operanddaki (hedef operand) bitleri, ikinci operandda (sayım operandı) belirtilen bit sayısı kadar sola veya sağa kaydırır. Hedef operand sınırını aşan bitler önce CF bayrağına kaydırılır, ardından atılır. Kaydırma işleminin sonunda CF bayrağı, hedef operanddan en son çıkan biti içerir.
 Hedef operand bir register veya bellek konumu olabilir. Sayım operandı ise sabit bir değer (immediate) veya CL register’ı olabilir. Sayım değeri 5 bit ile maskelenir (64-bit operand kullanıldığında 6 bit). Bu nedenle sayım aralığı 0–31 (64-bit operand için 0–63) ile sınırlıdır. 1 bitlik kaydırma için özel bir opcode kodlaması vardır.
+
+
+## SHL VE SAL KOMUTU
+
+SHL (Shift Logical Left) ve SAL (Shift Arithmetic Left) komutları, bir sayının bitlerini sola kaydırmak için kullanılır. Pratikte ikisi aynı işlemi yapar.
+
+SHL hedef, sayi  
+SAL hedef, sayi  
+hedef: register veya bellek  
+sayi: **immediate değer** veya **CL**  
+
+
+### SHR VE SAR KOMUTU
+
+| Özellik             | SHR              | SAR              |
+|---------------------|------------------|------------------|
+| Tür                 | Mantıksal        | Aritmetik        |
+| Soldan gelen bit    | 0                | İşaret biti      |
+| Kullanım            | Unsigned sayılar | Signed sayılar   |
+| Matematik           | /2               | Signed /2        |
