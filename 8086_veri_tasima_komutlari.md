@@ -191,3 +191,32 @@ Bu fonksiyonlar c dilinde veri transfer fonksiyonlarını listeler.fobksiyonlar 
 | strncpy() | string.h | String'i belirtilen karakter sayısı kadar kopyalar | strncpy(dest, src, n); |
 | strcat() | string.h | Bir string'i diğer string'in sonuna ekler | strcat(dest, src); |
 | strncat() | string.h | String ekleme işlemini belirtilen karakter sayısı kadar yapar | strncat(dest, src, n); |
+
+
+### memcpy()
+
+1.operand adresine,2.operand adresinden,3.operand da bulunan size kadar veri kopyalama yapar.bu memory den memory ye veri transfer fonksiyonudur.bu fonksiyonda toplamda bir kaç parametre vardır.**c dilinde veri transfer fonksiyonlarında alt seviye olan assembly dilindeki gibi memory -> register veri transferi yoktur.veri transferi bellekten belleğedir.**
+
+### memmove()
+
+1.operand adresine,2.operand adresinden,3.operand da bulunan size kadar veri kopyalama yapar.bu memory den memory ye veri transfer fonksiyonudur.**memcpy ve memmove** fonksiyonları elbette bir yeri farklı olabilir ancak temelde her ikisinde mantıksal olarak.hedef parametreye kaynak paramtereden size parametresi kadar veri transfer eder.
+
+## strcpy
+
+1.parametre ile geçen hedef string bellek bölgesine,2.paremetre içeriğindeki yazıyı kopyalar.bu stringlerin sonundaki 0 karakterini kullanır.size gerektirmez.güvenli olabilmesi için.2.parametre ile geçen yazının sonunda 0 olabilmesi gerekir.ve yazının uzunluğu kadar 1.parametre ile geçen bellek bölgesinde uzunluk ve memory hafızası olmalıdır.
+
+
+## strncpy
+
+1.bellek bölgesine,2.bellek bölgesinden,3.paretre geçen size değeri kadar ,3.parametrede geçen yazıyı kopyalar.sgring verisi taşıma fonksiyonudur.ancak 2.parametre deki string in yazının uzunluğunu belirtmek gerekir. bir parça string kopyalar veYa string tamamını kopyalar.3.parametre ile geçen size değerinin,2.parametredeki yazının uzunluğundan fazla olmamasına dikkat edilmelidir.strlen() fonksiyonunu kullanmak fonksiyon prosedürünü güvenli çalıştıracaktır.
+
+
+## strcat
+
+2.parametrede geçen yazıyı,stringi,1.parametre de geçen yazıya ekler.size yoktur.string sonu 0 karakterleri ile işlem yapar.1.parametre ile geçen string sonu 0 karakteri kısmını kullanılır.string verisi taşıma fonksiyon prosedürüdür.
+
+
+## strncat
+
+3.parametrede geçen size değeri kadar yazı karakterini 1.parametrede geçen yazı belleğine,2.parametrede geçen yazıdan kopyalar.
+
