@@ -1,7 +1,13 @@
 ## 8086 dallanma komutları
 
 ### 8086 dallanma komutları
-
+  
+8086 dallanma komutları 4 gruba ayrılır:  
+Koşulsuz: JMP, CALL, RET  
+Koşullu: JE, JNE, JC, JG vb.  
+Loop komutları: LOOP, LOOPE, LOOPNE  
+Register kontrol: JCXZ  
+  
 | Komut | Açıklama |
 |------|-----------|
 | JMP | Koşulsuz olarak belirtilen adrese atlar |
