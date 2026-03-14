@@ -96,7 +96,7 @@ CALL TOPLA   ; prosedürü çağır
 MOV CX,AX    ; sonuç CX'e alınır  
 HLT  
   
-TOPLA:  
+**TOPLA:** ; ETIKET BOYLE YAZILIR  
 ADD AX,BX    ; AX = AX + BX  
 RET          ; geri dön  
   
