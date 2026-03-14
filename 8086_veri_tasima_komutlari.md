@@ -227,6 +227,6 @@ strcat(eklenecek, eklenen);
 char eklenecek[100] = "Merhaba";  
 char eklenen[] = "dünya merhaba";  
 int eklenecek_len = strlen(eklenecek);  
-strcat(eklenecek, eklenen,5);  
+strncat(eklenecek, eklenen,5);  
 eklenecek[eklenecek_len+6] = '/0';  
 
