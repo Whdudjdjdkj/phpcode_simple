@@ -13,6 +13,7 @@ Register kontrol: JCXZ
 | JMP | Koşulsuz olarak belirtilen adrese atlar |
 | CALL | Alt programa gider |
 | RET | Alt programdan geri döner |
+| | |
 | JE / JZ | Eşitse / sıfırsa atla (ZF=1) |
 | JNE / JNZ | Eşit değilse / sıfır değilse atla (ZF=0) |
 | JC | Carry varsa atla (CF=1) |
