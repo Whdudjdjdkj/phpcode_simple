@@ -179,7 +179,10 @@ FI;
 ELSE (AddressSize = 64)  
 AL := (RBX + ZeroExtend(AL)); FI; 
 
-
+## C DİLİNDE VERİ TAŞIMA İÇİN VAR OLAN C FONKSİYONLARI. 
+  
+Bu fonksiyonlar c dilinde veri transfer fonksiyonlarını listeler.fobksiyonlar 1.,2.,3.,4. parametreleri olabilir.örneğin **memmove()** fonksiyonu 1.parametre de geçen  bellek bölgesine,2.parametrede geçen bellek bölgesinden,3.parametrede geçen size kadar güvenli taşıma yapar.  
+  
 | Fonksiyon | Kütüphane | Açıklama | Kullanım |
 |---|---|---|---|
 | memcpy() | string.h | Bir bellek bölgesinden diğerine belirtilen byte kadar veri kopyalar | memcpy(dest, src, n); |
@@ -188,5 +191,3 @@ AL := (RBX + ZeroExtend(AL)); FI;
 | strncpy() | string.h | String'i belirtilen karakter sayısı kadar kopyalar | strncpy(dest, src, n); |
 | strcat() | string.h | Bir string'i diğer string'in sonuna ekler | strcat(dest, src); |
 | strncat() | string.h | String ekleme işlemini belirtilen karakter sayısı kadar yapar | strncat(dest, src, n); |
-| sprintf() | stdio.h | Formatlı veriyi string içine yazar | sprintf(str, "%d", x); |
-| snprintf() | stdio.h | Formatlı veriyi güvenli şekilde string içine yazar | snprintf(str, size, "%d", x); |
