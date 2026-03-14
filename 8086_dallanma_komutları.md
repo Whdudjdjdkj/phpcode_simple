@@ -75,6 +75,13 @@ IP = (NEW OFFSET)
   
 EIP = (OFFSET)  
   
+### CALL
 
 
+**Yığına (stack) prosedür bağlantı bilgilerini kaydeder ve hedef operand tarafından belirtilen çağrılan prosedüre dallanır. Hedef operand, çağrılan prosedürdeki ilk komutun adresini belirtir.** Operand; anlık değer (immediate value), genel amaçlı bir yazmaç (register) veya bellek konumu (memory location) olabilir.
+Bu komut dört tür çağrıyı gerçekleştirmek için kullanılabilir:
+Near Call — Mevcut kod segmentindeki (CS yazmacının gösterdiği segment) bir prosedüre yapılan çağrı. Buna bazen segment içi çağrı (intra-segment call) da denir.
+Far Call — Mevcut kod segmentinden farklı bir segmentte bulunan bir prosedüre yapılan çağrı. Buna bazen segmentler arası çağrı (inter-segment call) denir.
+Inter-privilege-level Far Call — Şu anda çalışan program veya prosedürün ayrıcalık seviyesinden farklı bir ayrıcalık seviyesine sahip segmentteki bir prosedüre yapılan uzak çağrı.
+Task Switch — Farklı bir görevde (task) bulunan bir prosedüre yapılan çağrı.
 
