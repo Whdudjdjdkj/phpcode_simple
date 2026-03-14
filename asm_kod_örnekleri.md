@@ -188,3 +188,27 @@ JMP SHORT PROGRAM
   
 CIK:  
 HLT  
+
+
+## YAZININ UZUNLUĞUNU HESAPLAMA
+
+Bir yazının string sonu karaktere kadar 0 bx sayaç yapılarak uzunluğunu hesaplayıp len değişkenine kayıt eden.11 sonucunu bulan program.
+
+HEDEF DB "HELLO WORLD",0  
+LEN DW 0  
+MOV DI,OFFSET HEDEF  
+  
+MOV BX,0  
+HEDEF_UZUNLUK:  
+MOV AL,[DI]  
+CMP AL,0  
+JZ CIK1  
+INC BX  
+INC DI  
+JMP HEDEF_UZUNLUK  
+  
+CIK1:  
+MOV LEN,BX  
+HLT  
+  
+  
