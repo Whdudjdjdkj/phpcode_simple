@@ -140,4 +140,24 @@ OPERATİON:
 
 **RET KOMUTU CALİSİNCA STACKTAN GERİ DONUS DEGERİ ALİNİR VE ORAYA DALLANİLİR.PARAMTERE VERİLİRSE STACKTEN TEMİZLİK YAPAR **
 
+### LOOP
 
+LOOP komutu, sayaç olarak RCX, ECX veya CX yazmaçlarını kullanarak bir döngü işlemi gerçekleştirir. Hangi yazmacın kullanılacağı adres boyutuna bağlıdır (64 bit, 32 bit veya 16 bit).
+LOOP komutu REX.W önekini dikkate almaz; ancak 67H öneki kullanılarak 64-bit adres boyutu değiştirilebilir.
+LOOP komutu her çalıştırıldığında şu işlemler yapılır:
+Sayaç yazmacının değeri bir azaltılır.
+Daha sonra 0 olup olmadığı kontrol edilir.
+Eğer sayaç 0 ise, döngü sona erer ve program yürütmesi LOOP komutundan sonraki komuttan devam eder.
+Eğer sayaç 0 değilse, hedef (destination) operandına yakın bir atlama (near jump) yapılır. Bu hedef genellikle döngünün başındaki komuttur.
+Hedef komut, göreli bir ofset (relative offset) ile belirtilir. Bu ofset, IP/EIP/RIP komut işaretçisi yazmacının mevcut değerine göre işaretli (signed) bir değerdir.
+Assembly kodunda bu ofset genellikle bir etiket (label) olarak yazılır. Ancak makine kodu seviyesinde işaretli 8-bitlik bir sabit değer (immediate) olarak kodlanır ve komut işaretçisine eklenir.
+Bu komut için izin verilen ofset aralığı:
+−128 ile +127 arasındadır.
+
+Code:
+
+MOV CX,5        ; Döngü sayacı = 5  
+  
+TEKRAR:  
+INC AX          ; AX değerini 1 artır  
+LOOP TEKRAR     ; CX = CX - 1, CX ≠ 0 ise   TEKRAR etiketine git  
