@@ -25,3 +25,8 @@ Etkin bir **kesme (interrupt)** (**NMI** ve **SMI** dahil), bir **debug istisnas
 Eğer **HLT komutundan sonra çalışmayı devam ettirmek için bir kesme (NMI dahil)** kullanılırsa, kaydedilmiş komut işaretçisi **(CS:EIP)** HLT komutundan **sonraki komutu** gösterir.
 
 **HLT komutu**, **Intel 64** veya **IA-32** işlemcilerinde **Intel Hyper-Threading Technology** desteği varken çalıştırıldığında, yalnızca komutu çalıştıran **mantıksal işlemci (logical processor)** durdurulur. Aynı fiziksel işlemci içindeki diğer mantıksal işlemciler aktif kalmaya devam eder; ancak onlar da ayrı ayrı **HLT komutu** çalıştırırsa durdurulurlar.
+
+### LOCK
+
+LOCK öneki, birlikte kullanıldığı komut yürütülürken işlemcinin LOCK# sinyalini etkinleştirir (komutu atomik bir komuta dönüştürür).
+Çok işlemcili bir ortamda LOCK# sinyali, sinyal aktif olduğu sürece işlemcinin paylaşılan belleği özel olarak kullanmasını sağlar.
