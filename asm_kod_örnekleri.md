@@ -58,3 +58,7 @@ LOOP PROGRAM
   
 CODE ENDS  
 END START  
+  
+OUT:120 
+
+ 
