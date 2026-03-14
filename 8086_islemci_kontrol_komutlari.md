@@ -9,3 +9,8 @@
 | WAIT | İşlemciyi bekletir, özellikle yardımcı işlemci (coprocessor) işlemleri için kullanılır |
 | ESC | Harici yardımcı işlemciye (örneğin matematik işlemcisine) komut gönderir |
 | LOCK | Bir sonraki komutun bellek erişimini kilitler, çok işlemcili sistemlerde veri bütünlüğü sağlar |
+
+
+### NOP
+
+Bu komut **hiçbir işlem gerçekleştirmez**. Tek baytlık veya çok baytlı bir **NOP** komutudur ve komut akışında yer kaplar ancak **EIP register’ı** dışında makine durumunu etkilemez.
