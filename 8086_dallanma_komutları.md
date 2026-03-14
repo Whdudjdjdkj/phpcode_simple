@@ -35,3 +35,46 @@ Register kontrol: JCXZ
 | LOOPZ / LOOPE | CX ≠ 0 ve ZF=1 ise döngü |
 | LOOPNZ / LOOPNE | CX ≠ 0 ve ZF=0 ise döngü |
 | JCXZ | CX = 0 ise atla |
+
+
+### JMP
+
+Program kontrolünü, geri dönüş bilgisi kaydetmeden komut akışı içindeki farklı bir noktaya aktarır. Hedef (target) operandı, atlanacak komutun adresini belirtir. Bu operand; sabit bir değer (immediate value), genel amaçlı bir yazmaç (register) veya bellek konumu (memory location) olabilir.
+Bu komut dört farklı türde atlama gerçekleştirmek için kullanılabilir:
+Near jump (yakın atlama) — Mevcut kod segmenti içindeki bir komuta atlama yapar (yani CS yazmacının gösterdiği segment içinde). Buna bazen intrasegment jump (segment içi atlama) da denir.
+Short jump (kısa atlama) — Atlama aralığı mevcut EIP değerine göre –128 ile +127 arasında sınırlı olan bir near jump türüdür.
+Far jump (uzak atlama) — Mevcut kod segmentinden farklı bir segmentte bulunan fakat aynı ayrıcalık seviyesindeki (privilege level) bir komuta atlama yapar. Buna bazen intersegment jump (segmentler arası atlama) da denir.
+Task switch (görev değişimi) — Farklı bir görevde bulunan bir komuta atlama yapar. Görev değişimi yalnızca protected mode’da gerçekleştirilebilir (JMP komutu ile görev değişimi yapılması hakkında bilgi için Intel® 64 ve IA-32 Architectures Software Developer’s Manual, Volume 3A, Chapter 10’a bakınız).
+Near ve Short Jump
+Bir near jump çalıştırıldığında işlemci, hedef operand tarafından belirtilen adres içindeki (mevcut kod segmenti içinde) komuta atlar.
+Hedef operand şu iki şekilde belirtilebilir:
+Mutlak ofset (absolute offset) — Kod segmentinin başlangıcından itibaren verilen bir ofset
+Göreli ofset (relative offset) — EIP yazmacındaki mevcut komut işaretçisi değerine göre işaretli bir kaydırma (displacement)
+8 bitlik göreli ofsete (rel8) yapılan near jump, short jump olarak adlandırılır.
+Near ve short jump işlemlerinde CS yazmacı değiştirilmez.
+
+| JMP Türü      | Açıklama                         |
+|----------------|----------------------------------|
+| Short JMP      | -128 ile +127 byte arası         |
+| Near JMP       | Aynı segment içinde              |
+| Far JMP        | Farklı segment                   |
+| JMP Register   | Registerdaki adrese atlar        |
+| JMP Memory     | Bellekteki adrese atlar          |
+
+BASLA:  
+INC AX  
+JMP BASLA  
+
+JMP 1234h:5678h  
+**CS = 12340**  
+**IP= 5678**  
+
+Operation 
+  
+IP = (NEW OFFSET)  
+  
+EIP = (OFFSET)  
+  
+
+
+
