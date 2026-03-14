@@ -32,6 +32,7 @@ Register kontrol: JCXZ
 | JGE | Büyük veya eşitse atla |
 | JL | Küçükse atla |
 | JLE | Küçük veya eşitse atla |
+| | 
 | LOOP | CX ≠ 0 oldukça döngü yapar |
 | LOOPZ / LOOPE | CX ≠ 0 ve ZF=1 ise döngü |
 | LOOPNZ / LOOPNE | CX ≠ 0 ve ZF=0 ise döngü |
