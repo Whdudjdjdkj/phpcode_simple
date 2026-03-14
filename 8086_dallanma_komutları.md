@@ -85,3 +85,30 @@ Far Call — Mevcut kod segmentinden farklı bir segmentte bulunan bir prosedür
 Inter-privilege-level Far Call — Şu anda çalışan program veya prosedürün ayrıcalık seviyesinden farklı bir ayrıcalık seviyesine sahip segmentteki bir prosedüre yapılan uzak çağrı.
 Task Switch — Farklı bir görevde (task) bulunan bir prosedüre yapılan çağrı.
 
+### Near CALL Örneği (Aynı segment içinde)  
+  
+ORG 100h  
+  
+MOV AX,5   
+MOV BX,3  
+CALL TOPLA   ; prosedürü çağır  
+  
+MOV CX,AX    ; sonuç CX'e alınır  
+HLT  
+  
+TOPLA:  
+ADD AX,BX    ; AX = AX + BX  
+RET          ; geri dön  
+  
+Çalışma mantığı:  
+CALL TOPLA çalıştığında dönüş adresi stack'e push edilir  
+Program TOPLA etiketine atlar  
+RET çalışınca stack'teki adres alınır ve programa geri dönülür.  
+  
+Operation
+
+1.operand içindeki değere dallanır.ondan önce program bilgilerini yığına gönderir.
+EIP = 1.Operand
+
+
+
