@@ -15,7 +15,7 @@
 | XLAT | Tablo çevirisi yapar (AL indeks olarak kullanılır) | XLAT |
 
 ### MOV
-
+** İkinci OPERAND içindeki değer birinci operanda kopyalanır.**
 MOV komutu, ikinci operandı (kaynak operand) birinci operanda (hedef operand) kopyalar. Kaynak operand; immediate değer, genel amaçlı register, segment register veya bellek konumu olabilir. Hedef operand ise genel amaçlı register, segment register veya bellek konumu olabilir.
 Her iki operandın da aynı boyutta olması gerekir. Bu boyut byte, word, doubleword veya quadword olabilir.
 MOV komutu CS (Code Segment) register’ını yüklemek için kullanılamaz. Bunu yapmaya çalışmak geçersiz opcode hatasına (#UD) neden olur. CS register’ını yüklemek için far JMP, CALL veya RET komutları kullanılmalıdır.
@@ -32,7 +32,7 @@ Operation DEST := SRC;
 
 
 ### XCHG
-
+** Operandları içerisindeki değerler yer değiştirir**
 XCHG komutu, hedef operandın (birinci operand) ve kaynak operandın (ikinci operand) içeriklerini karşılıklı olarak değiştirir.
 Operandlar iki genel amaçlı register veya bir register ile bir bellek konumu olabilir.
 Eğer bir bellek operandı kullanılırsa, işlem süresi boyunca işlemcinin kilitleme protokolü (locking protocol) otomatik olarak uygulanır. Bu durum LOCK öneki (prefix) kullanılsa da kullanılmasa da ve IOPL değerinden bağımsız olarak gerçekleşir.
