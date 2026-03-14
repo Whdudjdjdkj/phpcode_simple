@@ -178,3 +178,15 @@ AL := (DS:EBX + ZeroExtend(AL));
 FI;  
 ELSE (AddressSize = 64)  
 AL := (RBX + ZeroExtend(AL)); FI; 
+
+
+| Fonksiyon | Kütüphane | Açıklama | Kullanım |
+|---|---|---|---|
+| memcpy() | string.h | Bir bellek bölgesinden diğerine belirtilen byte kadar veri kopyalar | memcpy(dest, src, n); |
+| memmove() | string.h | Bellek bölgeleri çakışsa bile güvenli şekilde veri kopyalar | memmove(dest, src, n); |
+| strcpy() | string.h | Bir string'i başka bir string'e kopyalar | strcpy(dest, src); |
+| strncpy() | string.h | String'i belirtilen karakter sayısı kadar kopyalar | strncpy(dest, src, n); |
+| strcat() | string.h | Bir string'i diğer string'in sonuna ekler | strcat(dest, src); |
+| strncat() | string.h | String ekleme işlemini belirtilen karakter sayısı kadar yapar | strncat(dest, src, n); |
+| sprintf() | stdio.h | Formatlı veriyi string içine yazar | sprintf(str, "%d", x); |
+| snprintf() | stdio.h | Formatlı veriyi güvenli şekilde string içine yazar | snprintf(str, size, "%d", x); |
