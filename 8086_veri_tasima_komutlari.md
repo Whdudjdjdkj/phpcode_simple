@@ -205,6 +205,16 @@ Bu fonksiyonlar c dilinde veri transfer fonksiyonlarını listeler.fobksiyonlar 
 
 1.parametre ile geçen hedef string bellek bölgesine,2.paremetre içeriğindeki yazıyı kopyalar.bu stringlerin sonundaki 0 karakterini kullanır.size gerektirmez.güvenli olabilmesi için.2.parametre ile geçen yazının sonunda 0 olabilmesi gerekir.ve yazının uzunluğu kadar 1.parametre ile geçen bellek bölgesinde uzunluk ve memory hafızası olmalıdır.
 
+// STRCPY FONKSİYONU KULLANARAK BİR STRİNGİ HEDEF STRİNGE KOPYALAMANIN KULLANIMI  
+#include <stdio.h>  
+#include <string.h>  
+int main() {  
+    char param1[30];  
+    char param2[] = "Merhaba dünya\0"; 
+      
+    strcpy(param1,param2);  
+    return 0;  
+}  
 
 ## strncpy
 
