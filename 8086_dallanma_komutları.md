@@ -110,5 +110,32 @@ Operation
 1.operand içindeki değere dallanır.ondan önce program bilgilerini yığına gönderir.
 EIP = 1.Operand
 
+### RET
+
+Program kontrolünü **stack'in (yığının) en üstünde bulunan dönüş adresine** aktarır.  
+Bu adres genellikle bir **CALL komutu** tarafından stack'e yerleştirilir ve dönüş,  
+**CALL komutundan hemen sonra gelen komuta** yapılır.
+
+İsteğe bağlı **source operand**, dönüş adresi stack'ten alındıktan sonra  
+**stack'ten serbest bırakılacak byte sayısını** belirtir. Varsayılan olarak böyle bir operand yoktur.
+
+Bu operand, çağrılan prosedüre **stack üzerinden gönderilen ve artık gerekli olmayan parametreleri**
+stack'ten kaldırmak için kullanılabilir.
+
+Eğer **CALL komutu**, yeni bir prosedüre geçmek için **sıfırdan farklı bir word count değerine sahip
+bir call gate** kullanıyorsa, bu operandın kullanılması zorunludur.
+
+Bu durumda **RET komutunun source operandı**, **call gate'in word count alanında belirtilen byte
+sayısıyla aynı değeri** belirtmelidir.
+
+
+RET  
+RET 2  
+RET 4  
+RET 8  
+
+OPERATİON:
+
+**RET KOMUTU CALİSİNCA STACKTAN GERİ DONUS DEGERİ ALİNİR VE ORAYA DALLANİLİR.PARAMTERE VERİLİRSE STACKTEN TEMİZLİK YAPAR **
 
 
