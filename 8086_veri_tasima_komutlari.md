@@ -120,7 +120,9 @@ Bu komut yalnızca işlemcinin I/O adres alanında bulunan I/O portlarına eriş
 
 **result** out_port(**int** port,**size_t** len,**char** data)
   
-IN AL,DX  
+IN AL,DX   
+  
+**DX DEĞİŞKENİNİN İÇİNDE YAZAN PORT NUMARASIYLA PORTTAN,AL DEĞİŞKENİNİN İÇERİĞİNE  VERİYİ KOPYALAR**
   
 DX DE PORTTAN AL YE VERİ Mİ ALİR KISACA CEVAPLA  
   
