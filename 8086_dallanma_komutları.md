@@ -40,7 +40,7 @@ Register kontrol: JCXZ
 
 
 ### JMP
-
+**Jump KOMUTUNUN operand'ı gidilecek adresi belirtir**
 Program kontrolünü, geri dönüş bilgisi kaydetmeden komut akışı içindeki farklı bir noktaya aktarır. Hedef (target) operandı, atlanacak komutun adresini belirtir. Bu operand; sabit bir değer (immediate value), genel amaçlı bir yazmaç (register) veya bellek konumu (memory location) olabilir.
 Bu komut dört farklı türde atlama gerçekleştirmek için kullanılabilir:
 Near jump (yakın atlama) — Mevcut kod segmenti içindeki bir komuta atlama yapar (yani CS yazmacının gösterdiği segment içinde). Buna bazen intrasegment jump (segment içi atlama) da denir.
