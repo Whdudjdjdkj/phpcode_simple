@@ -31,3 +31,48 @@
 | REP | CX sıfır olana kadar komutu tekrar eder |
 | REPE / REPZ | CX ≠ 0 ve ZF = 1 oldukça tekrar eder |
 | REPNE / REPNZ | CX ≠ 0 ve ZF = 0 oldukça tekrar eder |
+
+
+### MOVSB
+
+### MOVSB Komutu Nedir? (8086)
+
+**MOVSB (Move String Byte)** komutu, bellekteki **1 byte veriyi bir kaynaktan alıp başka bir bellek adresine kopyalamak** için kullanılan 8086 string komutudur.
+
+Bu komut çalışırken şu adres registerlarını kullanır:
+
+- **DS:SI** → Kaynak adres (source)  
+- **ES:DI** → Hedef adres (destination)
+
+Yani komut çalıştığında:
+
+- **DS:SI adresindeki 1 byte veri alınır**
+- **ES:DI adresine yazılır**
+
+---
+
+### Çalışma Mantığı
+
+| İşlem | Açıklama |
+|------|---------|
+| Okuma | DS:SI adresindeki byte okunur |
+| Yazma | Bu byte ES:DI adresine yazılır |
+| Güncelleme | SI ve DI registerları otomatik değişir |
+
+---
+
+### Direction Flag (DF) Etkisi
+
+| DF değeri | SI ve DI değişimi |
+|----------|------------------|
+| DF = 0 | SI ve DI 1 artar (ileri yönde) |
+| DF = 1 | SI ve DI 1 azalır (geri yönde) |
+
+---
+
+### Örnek
+
+```asm
+MOV SI,OFFSET KAYNAK
+MOV DI,OFFSET HEDEF
+MOVSB
