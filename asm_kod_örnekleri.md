@@ -338,5 +338,31 @@ ADD AL,10
 STOSB  
 LOOP PROGRAM  
 HLT  
+
+
+## Stack kullanımı
+
+8086 WORD STACK KULLANIMI  
+  
+[BITS 16]  
+[ORG 1000h]  
+  
+A DB 10  
+B DB 25  
+  
+MOV SP,1000h  
+PUSH BYTE A  
+PUSH BYTE B  
+CALL TOPLA  
+ADD SP,2  
+  
+TOPLA:  
+MOV AL,[SP+2]  
+MOV BL,[SP+3]  
+ADD AL,BL  
+RET  
+  
+CIK:  
+HLT  
   
   
