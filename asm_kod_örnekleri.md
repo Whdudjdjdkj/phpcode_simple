@@ -311,6 +311,20 @@ REP MOVSB
   
 CODE ENDS  
 
+## Dizideki sayıların toplamını LODSB komutu örneği ile bulma
+
+TABLE DB 10,20,30,40,50  
+  
+MOV BX,0  
+MOV SI,OFFSET TABLE  
+MOV CX,5  
+CLD  
+PROGRAM:  
+LODSB  
+ADD BL,AL  
+LOOP PROGRAM  
+
+
 
   
   
