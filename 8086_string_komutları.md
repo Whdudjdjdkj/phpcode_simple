@@ -205,3 +205,8 @@ Komut çalıştığında:
 MOV SI,OFFSET DIZI
 LODSW
 ```
+
+'''asm
+   MOV AX,20h
+   ADD AX,SAYI
+'''
