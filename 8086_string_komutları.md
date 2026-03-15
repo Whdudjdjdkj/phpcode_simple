@@ -205,3 +205,16 @@ Komut çalıştığında:
 MOV SI,OFFSET DIZI
 LODSW
 ```
+
+# STOSB Komutu (Store String Byte)
+
+`STOSB`, 8086 Assembly'de **AL registerındaki 1 byte veriyi ES:DI adresine yazan** string komutudur.
+
+---
+
+# STOSW Komutu (Store String Word)
+
+`STOSW`, 8086 Assembly’de kullanılan bir **string komutudur**.  
+Bu komut **AX registerındaki 16 bit (word) veriyi ES:DI adresine yazar.**
+
+--
