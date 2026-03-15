@@ -76,3 +76,46 @@ Yani komut çalıştığında:
 MOV SI,OFFSET KAYNAK
 MOV DI,OFFSET HEDEF
 MOVSB
+
+
+### MOVSW Komutu Nedir? (8086)
+
+**MOVSW (Move String Word)** komutu, bellekte bulunan **1 word (2 byte)** veriyi bir kaynaktan alıp başka bir bellek adresine kopyalamak için kullanılan 8086 **string komutudur**.
+
+Bu komut aşağıdaki adres registerlarını kullanır:
+
+- **DS:SI** → Kaynak adres (source)  
+- **ES:DI** → Hedef adres (destination)
+
+Komut çalıştığında:
+
+- **DS:SI adresindeki 1 word (2 byte) veri okunur**
+- **ES:DI adresine yazılır**
+
+---
+
+### Çalışma Mantığı
+
+| İşlem | Açıklama |
+|------|---------|
+| Okuma | DS:SI adresindeki word veri okunur |
+| Yazma | Bu veri ES:DI adresine yazılır |
+| Güncelleme | SI ve DI registerları otomatik değişir |
+
+---
+
+### Direction Flag (DF) Etkisi
+
+| DF değeri | SI ve DI değişimi |
+|----------|------------------|
+| DF = 0 | SI ve DI 2 artar (ileri yönde) |
+| DF = 1 | SI ve DI 2 azalır (geri yönde) |
+
+---
+
+### Örnek
+
+```asm
+MOV SI,OFFSET KAYNAK
+MOV DI,OFFSET HEDEF
+MOVSW
