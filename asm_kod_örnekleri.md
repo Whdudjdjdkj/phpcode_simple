@@ -210,5 +210,28 @@ JMP HEDEF_UZUNLUK
 CIK1:  
 MOV LEN,BX  
 HLT  
+
+
+## BUYUK SAYIYI BULMA
+  
+İki sayıyı karşılaştırır ve büyük olanı BUYUK değişkenine kayıt eder.
+
+A DB 5  
+B DB 10  
+BUYUK DB 1 DUP(0)  
+  
+MOV AL,A  
+CMP AL,B  
+JG BUYUK  
+  
+MOV AL,B  
+MOV BUYUK,AL  
+JMP CIK  
+  
+BUYUK:  
+MOV BUYUK,A  
+  
+CIK:  
+HLT  
   
   
