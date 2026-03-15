@@ -364,5 +364,36 @@ RET
   
 CIK:  
 HLT  
+
+
+## STACK KULLANIMI
+
+```asm
+A DW 30  
+B DW 20  
+MAX ?  
   
+PUSH WORD A  
+PUSH WORD B  
+CALL MAX  
+  
+JMP CIK  
+  
+MAX:  
+PUSH BP  
+MOV BP,SP  
+MOV AX,[BP+4]  
+CMP AX,[BP+6]  
+JNG .KUCUK  
+JMP .BITIR  
+.KUCUK  
+MOV AX,[BP+6]  
+.BITIR:  
+POP BP  
+RET  
+  
+CIK:  
+HLT  
+  
+```
   
