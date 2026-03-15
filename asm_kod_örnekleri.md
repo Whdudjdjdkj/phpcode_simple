@@ -396,4 +396,25 @@ CIK:
 HLT  
   
 ```
+
+## MASM TASLAK
+
+```asm
+
+.MODEL SMALL
+.STACK 250
+
+.DATA
+
+.CODE
+MAIN PROC
+
+    ; Kodlar buraya yazılır
+
+    MOV AX,4C00H
+    INT 21H
+
+MAIN ENDP
+END MAIN
+```
   
