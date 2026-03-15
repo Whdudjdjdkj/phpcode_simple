@@ -1,5 +1,16 @@
 ## 8086 STRİNG KOMUTLARI
 
+### 8086 String Komutları Ne İşe Yarar?
+
+8086 string komutları, bellekte bulunan dizi (array) veya karakter dizileri (string) üzerinde işlem yapmak için kullanılan komutlardır. Bu komutlar sayesinde veri kopyalama, karşılaştırma, arama ve yazma işlemleri hızlı şekilde yapılır.
+
+| Amaç | Açıklama |
+|------|---------|
+| Veri kopyalama | Bir diziyi başka bir diziye kopyalamak |
+| Karşılaştırma | İki string veya diziyi karşılaştırmak |
+| Arama | Dizide belirli bir karakter veya değeri bulmak |
+| Yazma | Registerdaki veriyi diziye yazmak |
+
 | Komut | Açılımı | Açıklama |
 |------|---------|---------|
 | MOVSB | Move String Byte | DS:SI adresindeki 1 byte veriyi ES:DI adresine kopyalar |
@@ -15,5 +26,8 @@
 
 ## String Prefix (Tekrar) Komutları
 
-
-
+| Prefix | Açıklama |
+|------|---------|
+| REP | CX sıfır olana kadar komutu tekrar eder |
+| REPE / REPZ | CX ≠ 0 ve ZF = 1 oldukça tekrar eder |
+| REPNE / REPNZ | CX ≠ 0 ve ZF = 0 oldukça tekrar eder |
