@@ -324,7 +324,19 @@ LODSB
 ADD BL,AL  
 LOOP PROGRAM  
 
+## Programın yaptığı iş
+**Program 10'dan başlayarak her seferinde 10 artırıp diziye yazıyor**
+diziye sayı yazma programı  
 
+TABLE DB 5 DUP(0)  
 
+MOV DI,OFFSET TABLE  
+MOV CX,5  
+MOV AL,10  
+PROGRAM:   
+ADD AL,10  
+STOSB  
+LOOP PROGRAM  
+HLT  
   
   
