@@ -284,5 +284,33 @@ END START
 4. Döngü tamamlandığında `EN_BUYUK` değişkeni dizideki en büyük değeri içerir.
 
 **Sonuç:**
+
+## MOVSB KOMUTUYLA KAYNAK STRİNGİ HEDEF BELLEK ALANINA KOPYALAMA
+
+Movsb komutu string karakterini veritransfet komutudur.çok kullanışlıdır.movab komutu veritransfer komutu olup.string transfer eder.es:di den ds:di bir byte veri kopyalar.si ve di bir artırır.eğer DF 0 ise.
+DF 1 ise si ve di bir eksiltilir.rep öneki ile kullanıldığında verimlidir.  
+
+CLD ve std komutları vardır.
+CLD Clear Direction 
+std set Direction dur.
+
+DATA SEGMENT  
+HEDEF DB 20 DUP(0)  
+KAYNAK DB "HELLO WORLD",0  
+DATA ENDS  
+  
+CODE SEGMENT  
+MOV AX,DATA  
+MOV DS,AX  
+MOV ES,AX  
+MOV DI,OFFSET HEDEF  
+MOV SI,OFFSET KAYNAK  
+CLD  
+MOV CX,11  
+REP MOVSB  
+  
+CODE ENDS  
+
+
   
   
