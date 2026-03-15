@@ -233,5 +233,56 @@ MOV BUYUK,A
   
 CIK:  
 HLT  
+
+
+## EN BÜYÜK SAYIYI BULMA
+  
+Bir dizideki en büyük sayıyı Bulma.
+
+DATA SEGMENT  
+TABLE DB 1,2,3,4,5,6,7,8,9,10  
+EN_BUYUK DB 0  
+DATA ENDS  
+  
+CODE SEGMENT  
+ASSUME DS:DATA  
+  
+START:  
+MOV AX,DATA  
+MOV DS,AX  
+  
+MOV DI,OFFSET TABLE  
+MOV AL,[DI]  
+MOV EN_BUYUK,AL  
+  
+MOV CL,10  
+INC DI  
+DEC CL  
+  
+PROGRAM:  
+MOV AL,[DI]  
+CMP AL,EN_BUYUK  
+JG GUNCELLE  
+INC DI  
+LOOP PROGRAM  
+  
+HLT  
+  
+GUNCELLE:  
+MOV EN_BUYUK,AL  
+INC DI  
+LOOP PROGRAM  
+  
+CODE ENDS  
+END START  
+
+### Programın Yaptığı İş
+
+1. Dizinin ilk elemanını `EN_BUYUK` değişkenine koyar.  
+2. Dizinin geri kalan elemanlarını tek tek karşılaştırır.  
+3. Eğer daha büyük bir sayı bulunursa `EN_BUYUK` değeri güncellenir.  
+4. Döngü tamamlandığında `EN_BUYUK` değişkeni dizideki en büyük değeri içerir.
+
+**Sonuç:**
   
   
