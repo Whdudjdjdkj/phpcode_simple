@@ -35,7 +35,7 @@
 
 ### MOVSB
 
-### MOVSB Komutu Nedir? (8086)
+## MOVSB Komutu Nedir? (8086)
 
 **MOVSB (Move String Byte)** komutu, bellekteki **1 byte veriyi bir kaynaktan alıp başka bir bellek adresine kopyalamak** için kullanılan 8086 string komutudur.
 
@@ -78,7 +78,7 @@ MOV DI,OFFSET HEDEF
 MOVSB
 
 
-### MOVSW Komutu Nedir? (8086)
+## MOVSW Komutu Nedir? (8086)
 
 **MOVSW (Move String Word)** komutu, bellekte bulunan **1 word (2 byte)** veriyi bir kaynaktan alıp başka bir bellek adresine kopyalamak için kullanılan 8086 **string komutudur**.
 
@@ -121,7 +121,7 @@ MOV DI,OFFSET HEDEF
 MOVSW
 
 
-### LODSB Komutu Nedir? (8086)
+## LODSB Komutu Nedir? (8086)
 
 **LODSB (Load String Byte)** komutu, bellekte bulunan **1 byte veriyi okuyarak AL registerına yükleyen** 8086 string komutudur.
 
@@ -160,3 +160,44 @@ Komut çalıştığında:
 ```asm
 MOV SI,OFFSET DIZI
 LODSB
+
+
+## LODSW Komutu Nedir? (8086)
+
+**LODSW (Load String Word)** komutu, bellekte bulunan **1 word (2 byte)** veriyi okuyarak **AX registerına yükleyen** 8086 string komutudur.
+
+Bu komut aşağıdaki adres registerını kullanır:
+
+- **DS:SI** → Kaynak adres (source)
+
+Komut çalıştığında:
+
+- **DS:SI adresindeki 1 word (2 byte) veri okunur**
+- **AX registerına yüklenir**
+
+---
+
+### Çalışma Mantığı
+
+| İşlem | Açıklama |
+|------|---------|
+| Okuma | DS:SI adresindeki word veri okunur |
+| Yükleme | Okunan veri AX registerına aktarılır |
+| Güncelleme | SI registerı otomatik değişir |
+
+---
+
+### Direction Flag (DF) Etkisi
+
+| DF değeri | SI değişimi |
+|----------|-------------|
+| DF = 0 | SI 2 artar (ileri yönde okuma) |
+| DF = 1 | SI 2 azalır (geri yönde okuma) |
+
+---
+
+### Örnek
+
+```asm
+MOV SI,OFFSET DIZI
+LODSW
