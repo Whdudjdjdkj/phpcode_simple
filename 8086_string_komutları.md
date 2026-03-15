@@ -75,7 +75,7 @@ Yani komut çalıştığında:
 ```asm
 MOV SI,OFFSET KAYNAK
 MOV DI,OFFSET HEDEF
-MOVSB'''
+MOVSB```
 
 
 ## MOVSW Komutu Nedir? (8086)
@@ -118,7 +118,7 @@ Komut çalıştığında:
 ```asm
 MOV SI,OFFSET KAYNAK
 MOV DI,OFFSET HEDEF
-MOVSW'''
+MOVSW```
 
 
 ## LODSB Komutu Nedir? (8086)
@@ -159,7 +159,7 @@ Komut çalıştığında:
 
 ```asm
 MOV SI,OFFSET DIZI
-LODSB'''
+LODSB```
 
 
 ## LODSW Komutu Nedir? (8086)
@@ -200,4 +200,4 @@ Komut çalıştığında:
 
 ```asm
 MOV SI,OFFSET DIZI
-LODSW'''
+LODSW```
