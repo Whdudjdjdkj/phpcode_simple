@@ -119,3 +119,44 @@ Komut çalıştığında:
 MOV SI,OFFSET KAYNAK
 MOV DI,OFFSET HEDEF
 MOVSW
+
+
+### LODSB Komutu Nedir? (8086)
+
+**LODSB (Load String Byte)** komutu, bellekte bulunan **1 byte veriyi okuyarak AL registerına yükleyen** 8086 string komutudur.
+
+Bu komut aşağıdaki adres registerını kullanır:
+
+- **DS:SI** → Kaynak adres (source)
+
+Komut çalıştığında:
+
+- **DS:SI adresindeki 1 byte veri okunur**
+- **AL registerına yüklenir**
+
+---
+
+### Çalışma Mantığı
+
+| İşlem | Açıklama |
+|------|---------|
+| Okuma | DS:SI adresindeki byte okunur |
+| Yükleme | Okunan veri AL registerına aktarılır |
+| Güncelleme | SI registerı otomatik değişir |
+
+---
+
+### Direction Flag (DF) Etkisi
+
+| DF değeri | SI değişimi |
+|----------|-------------|
+| DF = 0 | SI 1 artar (ileri yönde okuma) |
+| DF = 1 | SI 1 azalır (geri yönde okuma) |
+
+---
+
+### Örnek
+
+```asm
+MOV SI,OFFSET DIZI
+LODSB
