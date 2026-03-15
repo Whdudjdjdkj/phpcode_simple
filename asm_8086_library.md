@@ -1,0 +1,503 @@
+# 8086 Assembly Fonksiyon Kütüphanesi (40 Fonksiyon)
+
+Bu dosya temel **8086 ASM yardımcı fonksiyonlarını** içerir.\
+Tüm fonksiyonlar **Markdown + asm kod blokları** ile düzenlenmiştir.
+
+------------------------------------------------------------------------
+
+## 1. MAX
+
+``` asm
+MAX:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+CMP AX,[BP+6]
+JNG KUCUK
+JMP BITIR
+KUCUK:
+MOV AX,[BP+6]
+BITIR:
+POP BP
+RET
+```
+
+## 2. MIN
+
+``` asm
+MIN:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+CMP AX,[BP+6]
+JNL BUYUK
+JMP BITIR
+BUYUK:
+MOV AX,[BP+6]
+BITIR:
+POP BP
+RET
+```
+
+## 3. ADD
+
+``` asm
+ADD_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+ADD AX,[BP+6]
+POP BP
+RET
+```
+
+## 4. SUB
+
+``` asm
+SUB_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+SUB AX,[BP+6]
+POP BP
+RET
+```
+
+## 5. MUL
+
+``` asm
+MUL_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+MUL WORD [BP+6]
+POP BP
+RET
+```
+
+## 6. DIV
+
+``` asm
+DIV_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+DIV WORD [BP+6]
+POP BP
+RET
+```
+
+## 7. ABS
+
+``` asm
+ABS_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+CMP AX,0
+JGE BITIR
+NEG AX
+BITIR:
+POP BP
+RET
+```
+
+## 8. INC
+
+``` asm
+INC_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+INC AX
+POP BP
+RET
+```
+
+## 9. DEC
+
+``` asm
+DEC_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+DEC AX
+POP BP
+RET
+```
+
+## 10. MOD
+
+``` asm
+MOD_FUNC:
+PUSH BP
+MOV BP,SP
+MOV AX,[BP+4]
+XOR DX,DX
+DIV WORD [BP+6]
+MOV AX,DX
+POP BP
+RET
+```
+
+## 11. STRLEN
+
+``` asm
+STRLEN:
+PUSH BP
+MOV BP,SP
+MOV SI,[BP+4]
+MOV CX,0
+L1:
+MOV AL,[SI]
+CMP AL,0
+JZ ENDL
+INC CX
+INC SI
+JMP L1
+ENDL:
+MOV AX,CX
+POP BP
+RET
+```
+
+## 12. STRCPY
+
+``` asm
+STRCPY:
+PUSH BP
+MOV BP,SP
+MOV DI,[BP+4]
+MOV SI,[BP+6]
+COPY:
+MOV AL,[SI]
+MOV [DI],AL
+INC SI
+INC DI
+CMP AL,0
+JNZ COPY
+POP BP
+RET
+```
+
+## 13. STRCMP
+
+``` asm
+STRCMP:
+PUSH BP
+MOV BP,SP
+MOV SI,[BP+4]
+MOV DI,[BP+6]
+L1:
+MOV AL,[SI]
+MOV BL,[DI]
+CMP AL,BL
+JNE NOTEQ
+CMP AL,0
+JE EQUAL
+INC SI
+INC DI
+JMP L1
+NOTEQ:
+MOV AX,1
+JMP END
+EQUAL:
+MOV AX,0
+END:
+POP BP
+RET
+```
+
+## 14. MEMCPY
+
+``` asm
+MEMCPY:
+PUSH BP
+MOV BP,SP
+MOV DI,[BP+4]
+MOV SI,[BP+6]
+MOV CX,[BP+8]
+REP MOVSB
+POP BP
+RET
+```
+
+## 15. MEMSET
+
+``` asm
+MEMSET:
+PUSH BP
+MOV BP,SP
+MOV DI,[BP+4]
+MOV AL,[BP+6]
+MOV CX,[BP+8]
+REP STOSB
+POP BP
+RET
+```
+
+## 16. ARRAY_SUM
+
+``` asm
+ARRAY_SUM:
+PUSH BP
+MOV BP,SP
+MOV SI,[BP+4]
+MOV CX,[BP+6]
+XOR AX,AX
+L1:
+ADD AL,[SI]
+INC SI
+LOOP L1
+POP BP
+RET
+```
+
+## 17. ARRAY_MAX
+
+``` asm
+ARRAY_MAX:
+PUSH BP
+MOV BP,SP
+MOV SI,[BP+4]
+MOV CX,[BP+6]
+MOV AL,[SI]
+INC SI
+DEC CX
+L1:
+CMP AL,[SI]
+JAE NEXT
+MOV AL,[SI]
+NEXT:
+INC SI
+LOOP L1
+POP BP
+RET
+```
+
+## 18. ARRAY_MIN
+
+``` asm
+ARRAY_MIN:
+PUSH BP
+MOV BP,SP
+MOV SI,[BP+4]
+MOV CX,[BP+6]
+MOV AL,[SI]
+INC SI
+DEC CX
+L1:
+CMP AL,[SI]
+JBE NEXT
+MOV AL,[SI]
+NEXT:
+INC SI
+LOOP L1
+POP BP
+RET
+```
+
+## 19. ARRAY_AVG
+
+``` asm
+ARRAY_AVG:
+PUSH BP
+MOV BP,SP
+MOV SI,[BP+4]
+MOV CX,[BP+6]
+XOR AX,AX
+XOR BX,BX
+L1:
+ADD BL,[SI]
+INC SI
+LOOP L1
+MOV AL,BL
+DIV BYTE [BP+6]
+POP BP
+RET
+```
+
+## 20. ARRAY_FIND
+
+``` asm
+ARRAY_FIND:
+PUSH BP
+MOV BP,SP
+MOV SI,[BP+4]
+MOV CX,[BP+6]
+MOV AL,[BP+8]
+XOR BX,BX
+L1:
+CMP AL,[SI]
+JE FOUND
+INC SI
+INC BX
+LOOP L1
+MOV BX,-1
+FOUND:
+MOV AX,BX
+POP BP
+RET
+```
+
+## 21--40 (Kısa yardımcı fonksiyonlar)
+
+### SWAP
+
+``` asm
+SWAP:
+XCHG AX,BX
+RET
+```
+
+### CLEAR_AX
+
+``` asm
+CLEAR_AX:
+XOR AX,AX
+RET
+```
+
+### CLEAR_BX
+
+``` asm
+CLEAR_BX:
+XOR BX,BX
+RET
+```
+
+### CLEAR_CX
+
+``` asm
+CLEAR_CX:
+XOR CX,CX
+RET
+```
+
+### CLEAR_DX
+
+``` asm
+CLEAR_DX:
+XOR DX,DX
+RET
+```
+
+### PUSH_AX
+
+``` asm
+PUSH_AX:
+PUSH AX
+RET
+```
+
+### POP_AX
+
+``` asm
+POP_AX:
+POP AX
+RET
+```
+
+### PUSH_BX
+
+``` asm
+PUSH_BX:
+PUSH BX
+RET
+```
+
+### POP_BX
+
+``` asm
+POP_BX:
+POP BX
+RET
+```
+
+### NOP_FUNC
+
+``` asm
+NOP_FUNC:
+NOP
+RET
+```
+
+### INC_AX
+
+``` asm
+INC_AX:
+INC AX
+RET
+```
+
+### DEC_AX
+
+``` asm
+DEC_AX:
+DEC AX
+RET
+```
+
+### NEG_AX
+
+``` asm
+NEG_AX:
+NEG AX
+RET
+```
+
+### NOT_AX
+
+``` asm
+NOT_AX:
+NOT AX
+RET
+```
+
+### SHL_AX
+
+``` asm
+SHL_AX:
+SHL AX,1
+RET
+```
+
+### SHR_AX
+
+``` asm
+SHR_AX:
+SHR AX,1
+RET
+```
+
+### ROL_AX
+
+``` asm
+ROL_AX:
+ROL AX,1
+RET
+```
+
+### ROR_AX
+
+``` asm
+ROR_AX:
+ROR AX,1
+RET
+```
+
+### SET_CARRY
+
+``` asm
+SET_CARRY:
+STC
+RET
+```
+
+### CLEAR_CARRY
+
+``` asm
+CLEAR_CARRY:
+CLC
+RET
+```
